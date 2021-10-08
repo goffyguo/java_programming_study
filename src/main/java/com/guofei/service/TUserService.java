@@ -10,5 +10,12 @@ import com.guofei.domain.TUser;
  * @Description:
  */
 public interface TUserService {
+
     int addUser(TUser tUser);
+
+    void deleteUser(int id);
+
+    void updateUser(TUser tUser);
+
+    TUser getUserById(int id);
 }
