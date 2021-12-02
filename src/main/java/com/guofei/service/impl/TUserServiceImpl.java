@@ -73,6 +73,11 @@ public class TUserServiceImpl implements TUserService {
         return tUser;
     }
 
+    @Override
+    public TUser getUser() {
+        return tUserMapper.selectOne(null);
+    }
+
     public TUser getUserById2(int id){
         TUser tUser = null;
         String key = CACHE_KEY_USER + tUser.getId();

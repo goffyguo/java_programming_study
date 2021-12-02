@@ -18,4 +18,6 @@ public interface TUserService {
     void updateUser(TUser tUser);
 
     TUser getUserById(int id);
+
+    TUser getUser();
 }

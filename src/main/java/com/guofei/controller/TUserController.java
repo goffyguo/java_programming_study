@@ -58,4 +58,10 @@ public class TUserController {
         TUser userById = tUserService.getUserById(id);
         return userById.toString();
     }
+
+    @GetMapping("/getUser")
+    public String user(){
+        TUser user = tUserService.getUser();
+        return user.toString();
+    }
 }
