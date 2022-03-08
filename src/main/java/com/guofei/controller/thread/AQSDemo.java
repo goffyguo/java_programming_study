@@ -30,7 +30,6 @@ public class AQSDemo {
             lock.lock();
             try {
                 System.out.println("------B thread come in");
-                try { TimeUnit.MINUTES.sleep(20); } catch (InterruptedException e) { e.printStackTrace(); }
             }finally {
                 lock.unlock();
             }
@@ -40,7 +39,6 @@ public class AQSDemo {
             lock.lock();
             try {
                 System.out.println("------C thread come in");
-                try { TimeUnit.MINUTES.sleep(20); } catch (InterruptedException e) { e.printStackTrace(); }
             }finally {
                 lock.unlock();
             }
