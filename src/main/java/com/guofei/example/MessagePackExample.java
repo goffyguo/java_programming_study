@@ -1,9 +1,11 @@
 package com.guofei.example;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import org.msgpack.core.MessageBufferPacker;
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessageUnpacker;
+import org.msgpack.jackson.dataformat.MessagePackFactory;
 
 /**
  * @author: GuoFei
@@ -14,7 +16,31 @@ public class MessagePackExample {
   public static void main(String[] args) throws IOException {
     //basicUsage();
     // MessagePack pack = new MessagePack();
+    ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
+    Person guofei = new Person("1", "guofei", "25");
+    byte[] bytes = objectMapper.writeValueAsBytes(guofei);
+    for (byte aByte : bytes) {
+      System.out.println(aByte);
+    }
+
+    System.out.println("---------------------------");
+    Person deserialized = objectMapper.readValue(bytes, Person.class);
+    System.out.println(deserialized.toString());
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /**
    * Basic usage example
