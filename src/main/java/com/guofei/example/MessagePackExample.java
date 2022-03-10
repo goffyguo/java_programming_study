@@ -12,7 +12,8 @@ import org.msgpack.core.MessageUnpacker;
 public class MessagePackExample {
 
   public static void main(String[] args) throws IOException {
-    basicUsage();
+    //basicUsage();
+    // MessagePack pack = new MessagePack();
   }
 
   /**
