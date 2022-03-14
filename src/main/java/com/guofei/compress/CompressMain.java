@@ -17,14 +17,18 @@ import sun.misc.BASE64Encoder;
  */
 public class CompressMain {
 
-  public static void main(String[] args) throws IOException {
-    String map = getMap();
-    System.out.println(map);
-    final String compress = CompressUtils.compress(map);
-    System.out.println(compress);
+  public static void main(String[] args) throws Exception {
+    String s = getMap();
+    System.out.println(s);
+    System.out.println("字符串长度："+s.toString().length());
+    String gzip = GZIPUtils.gzip(s);
+    // String gzip = "H4sIAI4Q8GAA/8utDC4pysxlBwDH6ex/CAAAAA==";
+    System.out.println("压缩后字符串长度：："+gzip.length());
+    System.out.println("压缩后字符串：："+gzip);
 
-    final String uncompress = CompressUtils.uncompress(compress);
-    System.out.println(uncompress);
+    String gunzip = GZIPUtils.gunzip(gzip);
+    System.out.println("解缩后字符串长度：："+gunzip.length());
+    System.out.println("解缩后字符串：："+gunzip);
   }
 
 
@@ -53,8 +57,24 @@ public class CompressMain {
     // System.out.println(map);
     String s = JsonUtils.toString(map);
     return s;
-
   }
+  private static Object getMap1(){
+    List<CalendarEvent> list0 = new ArrayList();
+    Map<String,List<CalendarEvent>> map =new HashMap();
+    CalendarEvent event = new CalendarEvent();
+    event.setAllDay(1);
+    list0.add(event);
+    map.put("2022-3-17",list0);
+    return map;
+  }
+
+  private static Object getMap2(){
+    Map<String,Object> map =new HashMap();
+    map.put("k1",11);
+    map.put("k2",22);
+    return map;
+  }
+
 
   public static String byteToString(byte [] bytes){
     return new BASE64Encoder().encodeBuffer(bytes);
