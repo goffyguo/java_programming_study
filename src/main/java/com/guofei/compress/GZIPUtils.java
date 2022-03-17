@@ -96,7 +96,7 @@ public class GZIPUtils {
   public static String gzip(String data) throws Exception {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     GZIPOutputStream gzip = new GZIPOutputStream(out);
-    gzip.write(data.getBytes());
+    gzip.write(data.getBytes(GZIP_ENCODE_UTF_8));
     gzip.close();
     byte[] bytes = out.toByteArray();
     return new BASE64Encoder().encodeBuffer(bytes);
@@ -128,7 +128,7 @@ public class GZIPUtils {
           out.write(buf, 0, offset);
         }
         out.flush();
-        str = out.toString();
+        str = out.toString(GZIP_ENCODE_UTF_8);
       } catch (IOException e) {
         log.error("gzip解压失败，原因如下：{}", e.getMessage(), e);
       }

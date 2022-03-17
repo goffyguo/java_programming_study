@@ -150,11 +150,6 @@ public class CalendarEventRoom {
    * 开始时间
    */
   public Date getBeginTime() {
-    if (this.beginTime == null) {
-      if (this.getBeginTimeStamp() > 0) {
-        this.beginTime = new Date(this.beginTimeStamp);
-      }
-    }
     return beginTime;
   }
 
@@ -185,11 +180,6 @@ public class CalendarEventRoom {
    * 会议所属日期
    */
   public Date getMeetingDay() {
-    if (this.meetingDay == null) {
-      if (this.beginTimeStamp > 0) {
-        this.meetingDay = new Date(beginTimeStamp);
-      }
-    }
     return meetingDay;
   }
 
@@ -205,11 +195,6 @@ public class CalendarEventRoom {
    * 结束时间
    */
   public Date getEndTime() {
-    if (this.endTime == null) {
-      if (this.getBeginTimeStamp() > 0) {
-        this.endTime = new Date(this.getEndTimeStamp());
-      }
-    }
     return endTime;
   }
 
@@ -360,9 +345,6 @@ public class CalendarEventRoom {
    * 修改时间
    */
   public Date getModifiyTime() {
-    if (modifiyTime == null) {
-      modifiyTime = new Date();
-    }
     return modifiyTime;
   }
 

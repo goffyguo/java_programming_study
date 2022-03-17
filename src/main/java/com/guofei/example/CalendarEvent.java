@@ -122,7 +122,7 @@ public class CalendarEvent {
     /**
      * 修改时间
      */
-    private Date modifiyTime = new Date();
+    private Date modifiyTime;
 
     /**
      * 删除状态0正常其他删除
@@ -483,9 +483,6 @@ public class CalendarEvent {
 
 
     public String getBeginTime() {
-        if (beginTime == null) {
-            this.beginTime = new DateTime().toString("yyyy-MM-dd HH:mm:ss");
-        }
         return beginTime;
     }
 
@@ -601,9 +598,6 @@ public class CalendarEvent {
      * 修改时间
      */
     public Date getModifiyTime() {
-        if (modifiyTime == null) {
-            modifiyTime = new Date();
-        }
         return modifiyTime;
     }
 
