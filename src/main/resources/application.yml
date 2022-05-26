@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://120.46.149.32:3307/coin-exchange?serverTimezone=GMT%2B8
     username: root
-    password: guofei??
+    password:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 5
